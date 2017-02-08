@@ -161,9 +161,9 @@ ex() %>% check_function("plot") %>% check_arg("x") %>% check_equal()
 ## Simulate from an ARMA(p,q) process
 
 To generate a time series from an $ARMA(p,q)$ process we pass both
-$AR$ and $MA$ coefficients to the model argument of `arima.sim()`.
+$AR$ and $MA$ coefficients as the model arguments to `arima.sim()`.
 
-To simulate form the process
+To simulate the process
 
 $$Y _t = 2.7 + 0.5 Y _{t-1} +  0.2 Y _{t-2} + 0.7 \epsilon _{t} $$
 
@@ -226,8 +226,7 @@ ex() %>% check_function("plot", index = 2) %>% check_arg("x") %>% check_equal()
 --- type:NormalExercise lang:r xp:100 skills:1 key:0f12c1343e
 ## Empirical Autocorrelation Function 
 
-White Noise, $MA$ and $AR$ processes exhibit a distinct pattern which can help you in empirical applications which 
-type of model could be appropriate. 
+The empirical autocorrelation function of white Noise, $MA$ and $AR$ processes exhibit a distinct pattern which can help you in empirical applications with the model choice. 
 
 *** =instructions
 - Plot for each of the provided time series the empirical autocorrelation function. Use `acf` to achive this.
