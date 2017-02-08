@@ -628,24 +628,30 @@ ts <- arima.sim(list (ar = 0.9), n = 1000)
 
 *** =solution
 ```{r}
-#plot the series
-plot(ts, type = "line")
+#Plot the autocorrelations
+acf(ts)
+#Create and print rho1 and rho2
 auto_cor <- acf(ts)
-rho1 <- acf[2]
-rho2 <- acf[3]
+rho1 <- auto_cor[2]
+rho1
+rho2 <- auto_cor[3]
+rho2
 ```
 
 *** =sct
 ```{r}
-  fun <- ex() %>% check_function("plot")
+  fun <- ex() %>% check_function("acf")
   fun %>% check_arg("x") %>% check_equal()
-  fun %>% check_arg("type") %>% check_equal()
   
 test_object("rho1",
             eq_condition = "equivalent",
             eval = TRUE)
+    
             
 test_object("rho2",
             eq_condition = "equivalent",
             eval = TRUE)
+
+ex() %>% test_output_contains("rho1") %>% check_equal()
+ex() %>% test_output_contains("rho2") %>% check_equal()
 ```
