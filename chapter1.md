@@ -630,11 +630,13 @@ ts <- arima.sim(list (ar = 0.9), n = 1000)
 ```{r}
 #Plot the autocorrelations
 acf(ts)
-#Create and print rho1 and rho2
+#Create rho1 and rho2
 auto_cor <- acf(ts)
 rho1 <- auto_cor[2]
-rho1
 rho2 <- auto_cor[3]
+
+#Print rho1 and rho2
+rho1
 rho2
 ```
 
