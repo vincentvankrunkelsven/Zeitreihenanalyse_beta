@@ -163,11 +163,14 @@ ex() %>% check_function("plot") %>% check_arg("x") %>% check_equal()
 To generate a time series from an $ARMA(p,q)$ process we pass both
 $AR$ and $MA$ coefficients to `arima.sim()`.
 
-To simulate the process
+To simulate 200 observations from the process
 
 $$Y _t = 2.7 + 0.5 Y _{t-1} +  0.2 Y _{t-2} + 0.7 \epsilon _{t} $$
 
-we can type: `2.7 + arima.sim(model = list(ar = c(0.5, 0.2), ma = 0.7), n = 200)`.
+we can type: `arima.sim(model = list(ar = c(0.5, 0.2), ma = 0.7), mean = 2.7, n = 200)`.
+
+When using `arima.sim()` to simulate from a $MA(q)$ or White noise process the argument mean corresponds to the expectation of the process $/mu$.
+In case you want to simulate from an $AR(p)$ or an $ARMA(p,q)$ process `mean` corresponds to the constant $c \neq \mu$.
 
 
 
@@ -208,7 +211,7 @@ set.seed(123)
 #simulate from gaussian white noise process
 wn  <- arima.sim(model = list(), n = 1000)
 #simulate from arma(1,1) process
-y <- 4 + arima.sim(model = list(ar = 0.7, ma = 0.4), n = 1000)
+y <- arima.sim(model = list(ar = 0.7, ma = 0.4), mean = 4, n = 1000)
 #plot wn and y 
 par(mfrow = c(2,1))
 plot(wn)
