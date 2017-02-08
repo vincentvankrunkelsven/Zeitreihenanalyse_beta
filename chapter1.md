@@ -652,6 +652,6 @@ test_object("rho2",
             eq_condition = "equivalent",
             eval = TRUE)
 
-ex() %>% test_output_contains("rho1") 
-ex() %>% test_output_contains("rho2") 
+ex() %>% check_output_expr("rho1") 
+ex() %>% check_output_expr("rho2") 
 ```
