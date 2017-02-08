@@ -599,7 +599,7 @@ test_mc(correct = 4)
 
 Autocorrelation is the correlation of one variable with itself at different points in time.
 As you will see in the next lectures, the autocorrelation structure can provide useful information about the underlying stochastic process. 
-The function `acf()` computes by default $//rho _1, /ldots, rho _30$  
+The function `acf()` computes by default $ \rho _1, \ldots, \rho _{30} $
 
 
 
