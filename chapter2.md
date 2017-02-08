@@ -46,9 +46,9 @@ par(mfrow = c(3,1))
 #Set the seed
 set.seed(123)
 #Simulate the time series
-wn    <- arima.sim(model = list(order = c(0,0,0)), n = 1000 )
-ma_1  <- arima.sim(model = list(order = c(0,0,1), ma = c(1)), n = 1000 )
-ma_5  <- arima.sim(model = list(order = c(0,0,5), ma = c(1,1,1,1,1)), n = 1000 )
+wn    <- arima.sim(model = list(), n = 1000 )
+ma_1  <- arima.sim(model = list(ma = c(1)), n = 1000 )
+ma_5  <- arima.sim(model = list(ma = c(1,1,1,1,1) ), n = 1000 )
 #Plot all three time series
 par(mfrow = c(3,1))
 plot(wn)
