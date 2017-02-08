@@ -281,11 +281,11 @@ Decide which process generated a time series with one of these functions.
 
 
 *** =instructions
-- **a** was simulated from a White Noise process, **b** from an $AR$ process and **c** from an $MA$ process. 
-- **a** was simulated from a $AR$ process and **b** and **c** from an $MA$ process. 
-- **a** was simulated from a $AR$ process, **b** from an White Woise process and **c** from an $MA$ process. 
-- **a** and **c** were simulated from an $AR$ process and **b** from an $MA$ process. 
-- **a** was simulated from an $ARMA$ process, **b** from an White Noise process and **c** from an $AR$ process. 
+- **a** was simulated from a White Noise process, **b** from an $AR$ process and **c** from a $MA$ process. 
+- **a** was simulated from an $AR$ process and **b** and **c** from a $MA$ process. 
+- **a** was simulated from an $AR$ process, **b** from an White Woise process and **c** from a $MA$ process. 
+- **a** and **c** were simulated from an $AR$ process and **b** from a $MA$ process. 
+- **a** was simulated from an $ARMA$ process, **b** from a White Noise process and **c** from an $AR$ process. 
 *** =hint
 
 *** =pre_exercise_code
