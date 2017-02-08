@@ -597,7 +597,11 @@ test_mc(correct = 4)
 --- type:NormalExercise lang:r xp:100 skills:1 key:690fce9e08
 ## Autocorrelation
 
-Autocorrelation is the correlation of one variable with itself at a different points in time.
+Autocorrelation is the correlation of one variable with itself at different points in time.
+As you will see in the next lectures, the autocorrelation structure can provide useful information about the underlying stochastic process. 
+The function `acf()` computes by default $/rho _1, /ldots, rho _30$  
+
+
 
 *** =instructions
 - The time series `ts` is already loaded into the workspace. 
@@ -609,8 +613,8 @@ Autocorrelation is the correlation of one variable with itself at a different po
 
 *** =pre_exercise_code
 ```{r}
-set.seed(321)
-ts <- arima.sim(list (ar = 0.9), n = 100)
+set.seed(123)
+ts <- arima.sim(list (ar = 0.9), n = 1000)
 ```
 
 *** =sample_code
