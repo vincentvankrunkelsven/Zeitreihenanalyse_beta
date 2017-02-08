@@ -317,6 +317,8 @@ test_mc(correct = 1)
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b58882ded5
 ## Which processes are stationary? 
 
+Decide which process is stationary.
+
 <ol>
   <li>$ y _t = 1.4 y _{t-1} + \epsilon _t$</li>
   <li>$ y _t = 0.4 y _{t-1} + \epsilon _t$</li>
