@@ -101,7 +101,7 @@ Now we want to use `arima.sim()` to generate time series from an $AR$ process.
 Consider the process:
 $$Y_t = 0.4 Y _{t-1} + 0.2 Y _{t-2} + \epsilon _t.$$
 
-We can simulate one possible path of this process with 100 observation by
+We can simulate one possible path of this process with 100 observation by typing
 `arima.sim(ar = c(0.4, 0.2), n = 100)`.
 
 
