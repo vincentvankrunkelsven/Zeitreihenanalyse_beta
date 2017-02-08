@@ -599,17 +599,21 @@ test_mc(correct = 4)
 
 Autocorrelation is the correlation of one variable with itself at different points in time.
 As you will see in the next lectures, the autocorrelation structure can provide useful information about the underlying stochastic process. 
-The function `acf()` computes by default $ \rho _1, \ldots, \rho _{30} $
+The function `acf()` computes by default $ \rho _1, \ldots, \rho _{30} $. If you want to compute a different number of autocorrelations check out 
+the help page.
 
+The default output of `acf()` is a barplot. If you are interested in the numbers you can either wrap the call to `acf()` in a call to print (i.e. `print(acf(x))`)
+or assign the result to a new variable (i.e. `auto_cor <- acf(x) `). The new varaible behaves similar to a normal vector. Hence you can use regular subsetting.  
+Keep in mind that the 
 
 
 *** =instructions
 - The time series `ts` is already loaded into the workspace. 
 - Visualize `ts` using `plot`.
-- Compute the first two autocorrelation coefficient $\rho _1$ and $\rho _2$ and store them in the variables rho1 and rho2.
+- Compute the first two autocorrelation coefficient $\rho _1$ and $\rho _2$ and store them in the variables `rho1` and `rho2`.
 
 *** =hint
-- The function `cor()` might be helpful. 
+ 
 
 *** =pre_exercise_code
 ```{r}
@@ -624,9 +628,11 @@ ts <- arima.sim(list (ar = 0.9), n = 1000)
 
 *** =solution
 ```{r}
+#plot the series
 plot(ts, type = "line")
-rho1 <- cor(ts[-1], ts[-100])
-rho2 <- cor(ts[-1:-2], ts[-100:-99])
+auto_cor <- acf(ts)
+rho1 <- acf[2]
+rho2 <- acf[3]
 ```
 
 *** =sct
