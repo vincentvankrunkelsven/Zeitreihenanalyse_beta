@@ -310,3 +310,39 @@ acf(ma, main = "c")
 ```{r}
 test_mc(correct = 1)
 ```
+
+
+
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b58882ded5
+## Which processes are stationary? 
+
+<ol>
+  <li>$ y _t = 1.4 y _{t-1} + \epsilon _t$</li>
+  <li>$ y _t = 0.4 y _{t-1} + \epsilon _t$</li>
+  <li>$ y _t = 0.4 y _{t-1} + 0.6 y _{t-2} + \epsilon _t$</li>
+  <li>$ y _t = y _{t-1} + \epsilon _t$</li>
+  <li>$ y _t = \epsilon _t + 0.4 \epsilon _{t-1}$</li>
+  <li>$ y _t = \epsilon _t + 0.4 \epsilon _{t-1} + 0.6 \epsilon _{t-2}$</li>
+</ol>
+
+
+
+*** =instructions
+- No process is stationary.
+- All processes are stationary. 
+- The processes $2$, $5$ and $6$ are stationary.
+- The processes $1$, $3$ and $4$ are stationary.
+- The processes $2$ and $4$ are stationary.
+- Only process $5$ is stationary. 
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
