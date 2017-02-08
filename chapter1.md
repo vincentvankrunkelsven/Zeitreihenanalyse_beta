@@ -397,7 +397,9 @@ fun_lines %>% check_arg("col") %>% check_equal()
 
 ```
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:06d273312f
-## Sequence of random variables
+## Sequence of random variables 
+For the next excercises the lecture script will be helpful. Try to understand the meaning of the answers. 
+
 How do we call an ordered sequence of random variables (rv) which are defined on the same probability space?  
 
 *** =instructions
@@ -414,8 +416,6 @@ test_mc(correct = 3)
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2c1f9e3f09
 ## Time Series
-For the next excercises the lecture script will be helpful. Try to understand the meaning of the answers. 
-
 How can a time series be defined?
 
 *** =instructions
@@ -636,7 +636,7 @@ ts <- arima.sim(list (ar = 0.9), n = 1000)
 
 *** =solution
 ```{r}
-#Plot the autocorrelations
+#Plot the autocorrelations 
 acf(ts)
 
 #Create rho1 and rho2
