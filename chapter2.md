@@ -229,7 +229,9 @@ ex() %>% check_function("plot", index = 2) %>% check_arg("x") %>% check_equal()
 --- type:NormalExercise lang:r xp:100 skills:1 key:0f12c1343e
 ## Empirical Autocorrelation Function 
 
-The empirical autocorrelation function of white Noise, $MA$ and $AR$ processes exhibit a distinct pattern which can help you in empirical applications with the model choice. 
+The empirical autocorrelation functions of White Noise, $MA$ and $AR$ processes exhibit a distinct pattern which can help you in empirical applications with the model choice. 
+
+If the 4 plots do not fit on your display or are too small you can copy and paste the code into the R console on your computer. 
 
 *** =instructions
 - Plot for each of the provided time series the empirical autocorrelation function. Use `acf` to achive this.
@@ -244,10 +246,10 @@ The empirical autocorrelation function of white Noise, $MA$ and $AR$ processes e
 *** =sample_code
 ```{r}
 #Generate time series 
-wn   <-  arima.sim(model = list(), n = 1000)
-ma   <-  arima.sim(model = list(ma = 0.4), n = 1000)
-ar   <-  arima.sim(model = list(ar = 0.7), n = 1000)
-arma <-  arima.sim(model = list(ar = 0.7, ma = 0.4), n = 1000)
+wn   <-  arima.sim(model = list(), n = 10000)
+ma   <-  arima.sim(model = list(ma = 0.4), n = 10000)
+ar   <-  arima.sim(model = list(ar = 0.7), n = 10000)
+arma <-  arima.sim(model = list(ar = 0.7, ma = 0.4), n = 10000)
 #Plot autocorrelation functions
 par(mfrow = c(4,1))
 ```
@@ -255,10 +257,10 @@ par(mfrow = c(4,1))
 *** =solution
 ```{r}
 #Generate time series 
-wn   <-  arima.sim(model = list(), n = 1000)
-ma   <-  arima.sim(model = list(ma = 0.4), n = 1000)
-ar   <-  arima.sim(model = list(ar = 0.7), n = 1000)
-arma <-  arima.sim(model = list(ar = 0.7, ma = 0.4), n = 1000)
+wn   <-  arima.sim(model = list(), n = 10000)
+ma   <-  arima.sim(model = list(ma = 0.4), n = 10000)
+ar   <-  arima.sim(model = list(ar = 0.7), n = 10000)
+arma <-  arima.sim(model = list(ar = 0.7, ma = 0.4), n = 10000)
 
 #Plot autocorrelation functions
 par(mfrow = c(4,1))
