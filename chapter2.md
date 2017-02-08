@@ -161,7 +161,7 @@ ex() %>% check_function("plot") %>% check_arg("x") %>% check_equal()
 ## Simulate from an ARMA(p,q) process
 
 To generate a time series from an $ARMA(p,q)$ process we pass both
-$AR$ and $MA$ coefficients as the model arguments to `arima.sim()`.
+$AR$ and $MA$ coefficients to `arima.sim()`.
 
 To simulate the process
 
