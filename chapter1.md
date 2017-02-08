@@ -414,6 +414,7 @@ test_mc(correct = 3)
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2c1f9e3f09
 ## Time Series
+For the next excercises the lecture script will be helpful. Try to understand the meaning of the answers. 
 
 How can a time series be defined?
 
@@ -599,18 +600,17 @@ test_mc(correct = 4)
 
 Autocorrelation is the correlation of one variable with itself at different points in time.
 As you will see in the next lectures, the autocorrelation structure can provide useful information about the underlying stochastic process. 
-The function `acf()` computes by default $ \rho _1, \ldots, \rho _{30} $. If you want to compute a different number of autocorrelations check out 
+The function `acf()` computes by default $ \hat{\rho _1}, \ldots, \hat{\rho} _{30} $. If you want to compute a different number of autocorrelations check out 
 the help page.
 
 The default output of `acf()` is a barplot. If you are interested in the numbers you can either wrap the call to `acf()` in a call to print (i.e. `print(acf(x))`)
 or assign the result to a new variable (i.e. `auto_cor <- acf(x) `). The new varaible behaves similar to a normal vector. Hence you can use regular subsetting.  
-Keep in mind that the 
 
 
 *** =instructions
 - The time series `ts` is already loaded into the workspace. 
-- Visualize `ts` using `plot`.
-- Compute the first two autocorrelation coefficient $\rho _1$ and $\rho _2$ and store them in the variables `rho1` and `rho2`.
+- Plot the empirical autocorrelation function of `ts`.
+- Compute the first two autocorrelation coefficients $\hat{\rho _1}$ and $ \hat{\rho} _2$ and store them in the variables `rho1` and `rho2`.
 
 *** =hint
  
