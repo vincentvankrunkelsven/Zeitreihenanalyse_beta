@@ -81,7 +81,7 @@ $$\epsilon _t \sim (0, \sigma)$$
 - The variance of $Y_t$ is larger because a white noise process is more wiggly than an $MA$ process.
 - The variance of $Y_t$ is larger because $Z _t$ is a smoothed version of $Y _t$.
 - The variance of $Z _t$ is larger because $$Var(Z _t) = \sigma^2 (1 + \theta^2) $$.
-- The variance of $Z _t$ is larger because there are positive autocvariances. 
+- The variance of $Z _t$ is larger because there are positive autocovariances. 
 
 *** =hint
 
@@ -347,4 +347,61 @@ Decide which process is stationary.
 *** =sct
 ```{r}
 
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:318d64dd4c
+## An $AR(2)$ process with complex roots 
+
+Check whether the process 
+
+$$y _t = 1.5 y _{t-1} - .75 y _{t-2} + \epsilon _t $$ 
+
+is stationary. 
+
+You can use the function `polyroot()` to compute the roots of the characteristic.
+
+*** =instructions
+
+- Assign the coefficients of the characteristic polynomial to the vector `z`.
+- Pass `z` as an argument to `polyroot()` and assign the result to the variable `roots`. 
+- Compute the absolute value of the roots (`Mod()` can do this for real as well as complex numbers) and check if they lie outside the unit circle. 
+
+*** =hint
+- How does the characteristic polynomial looks like? Double check if you used the correct signs. 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+#Create vector z containing the coefficients of the characteristic polynomial
+
+
+#Compute the roots of the characteristic polynomial 
+
+
+#Compute and print out the absolute value of the roots
+
+```
+
+*** =solution
+```{r}
+#Create vector z containing the coefficients of the characteristic polynomial
+z <- c(1, -1.5, 0.75)
+
+#Compute the roots of the characteristic polynomial 
+roots <- polyroot(z)
+
+#Compute and print out the absolute value of the roots
+Mod(roots) 
+
+```
+
+*** =sct
+```{r}
+ex() %>% check_object("z") %>% check_equal()
+ex() %>% check_object("roots") %>% check_equal()
+ec() %>% check_output_expr("Mod(roots)")
 ```
