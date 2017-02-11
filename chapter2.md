@@ -165,11 +165,11 @@ $AR$ and $MA$ coefficients to `arima.sim()`.
 
 To simulate 200 observations from the process
 
-$$Y _t = 2.7 + 0.5 Y _{t-1} +  0.2 Y _{t-2} + 0.7 \epsilon _{t} $$
+$$Y _t = 2.7 + 0.5 Y _{t-1} +  0.2 Y _{t-2} + 0.7 \epsilon _{t-1} + \epsilon _t$$
 
 we can type: `arima.sim(model = list(ar = c(0.5, 0.2), ma = 0.7), mean = 2.7, n = 200)`.
 
-When using `arima.sim()` to simulate from a $MA(q)$ or White noise process the argument mean corresponds to the expectation of the process $/mu$.
+When using `arima.sim()` to simulate from a $MA(q)$ or White noise process the argument mean corresponds to the expectation of the process $\mu$.
 In case you want to simulate from an $AR(p)$ or an $ARMA(p,q)$ process `mean` corresponds to the constant $c \neq \mu$.
 
 
