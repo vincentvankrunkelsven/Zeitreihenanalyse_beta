@@ -403,5 +403,5 @@ Mod(roots)
 ```{r}
 ex() %>% check_object("z") %>% check_equal()
 ex() %>% check_object("roots") %>% check_equal()
-ec() %>% check_output_expr("Mod(roots)")
+ex() %>% check_output_expr("Mod(roots)")
 ```
