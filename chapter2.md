@@ -350,7 +350,7 @@ Decide which process is stationary.
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:318d64dd4c
-## An $AR(2)$ process with complex roots 
+## An AR(2) process with complex roots 
 
 Check whether the process 
 
