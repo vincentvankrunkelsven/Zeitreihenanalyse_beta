@@ -27,7 +27,7 @@ Your task is to conduct a rudimentary analysis of this data set while you will l
 
 *** =pre_exercise_code
 ```{r}
-library(AER)
+library(xts)
 ```
 
 *** =sample_code
