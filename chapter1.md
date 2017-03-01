@@ -34,10 +34,11 @@ library(xts)
 ```{r}
 # 1. Print the time series
 
+
 # 2. Compute the length of the time series
 
 
-# 3. Save the first 6 and the last 7 observations 
+# 3. Print the first 6 and the last 7 observations 
 
 
 # 4. Generate a plot
@@ -49,6 +50,7 @@ library(xts)
 ```{r}
 # 1. Print the time series
 print(discoveries)
+
 # 2. Compute the length of the time series
 length(discoveries)
 
@@ -116,9 +118,12 @@ You can use`c()` to **c**ombine values to a vector.
 ```{r}
 # Create vec
 
+
 # Create ts_vec
 
+
 # Print out the class of vec and ts_vec
+
 ```
 
 *** =solution
@@ -232,9 +237,12 @@ We set frequency to `4` because a year consists of `4` quarters. For monthly dat
 # Generating sample data
 set.seed(123)
 x <- sample(0:100, size = 50, replace = TRUE) 
+
 # Create the time series object
 
+
 # Print the time series 
+
 
 # Plot the time series 
 ```
@@ -244,12 +252,16 @@ x <- sample(0:100, size = 50, replace = TRUE)
 # Generating sample data
 set.seed(123)
 x <- sample(0:100, size = 50, replace = TRUE)  
+
 # Create the time series object
 x_ts <- ts(x, start = c(2000, 4), frequency = 4)
+
 # Print the time series 
 x_ts
+
 # Plot the time series
 plot(x_ts)
+
 ```
 
 *** =sct
@@ -294,10 +306,12 @@ Finally, we will create an object with the remaining years.
 # Determine the frequnecy
 
 
-# Create a vector containing only the first 4 years
+# Create and print vector containing only the first 4 years
 
 
-# Create a vector containing the remaining series
+
+# Create and print containing the remaining series
+
 
 
 ```
@@ -317,9 +331,11 @@ frequency(AirPassengers)
 # Create and print out a vector containing only the first 4 years
 AP_begin<- window(AirPassengers, start =  start(AirPassengers), end = c(1952, 12))
 AP_begin
+
 # Create and print out a vector containing the remaining series
 AP_rest <- window(AirPassengers, start = c(1953, 1), end =  end(AirPassengers))
 AP_rest
+
 ```
 *** =sct
 ```{r}
@@ -335,6 +351,185 @@ ex() %>% check_output_expr("AP_begin")
 ex() %>% check_output_expr("AP_rest")
 ```
 
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:89fdfcd16b
+## Properties of the AirPassanger time series
+With your knowledge about stationarity and how a stationary process should look like reconsider the `AirPassanger` time series. 
+Which of the following statements are true?
+
+<ol>
+  <li>Looks like a random walk.</li>
+  <li>The time series has a time trend. </li>
+  <li>It could be white noise. </li>
+  <li>The time series exhibits a seasonal pattern. </li>
+  <li>The seasonal pattern gets stronger with increasing $t$.</li>
+  <li>The underlying process seems to be perfectly stationary.</li>
+</ol>
+
+You need to find all true statements. 
+
+*** =instructions
+- The statements 1, 3, 6 are true. 
+- The statements 2 and 5 are true.
+- Only statements 6 is true.
+- The statements 2, 4, and 5 are true.  
+- Only statements 4 is true.
+- The statements 1, 2, and 4 are true.
+- All statements but 6 are true. 
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+plot(AirPassengers)
+```
+
+*** =sct
+```{r}
+test_mc(correct = 4)
+```
+--- type:NormalExercise lang:r xp:100 skills:1 key:f3288cd690
+## Trend and Seasonality I
+
+In the near future we will consider ARMA - models which can be applied only to stationary processes. 
+As we found in the previous exercise, the `AirPassanger` time series is clearly not stationry. 
+To work with this kind of model we need to transform the original time series in a stationary one. 
+
+In our case this means that we have to remove the time trend and the seasonal pattern. In the lecture several methods 
+were discussed how you can achieve this. In the exercise session those methods will be considered in much more 
+detail. 
+
+Here we will introduce the R function `decompose()`. `decompose()` does not require any knowledge about the 
+underlying methods, which makes it an easy to use function. However, when applied without caution it can yield to misleading results. 
+
+`decompose()` assumes the following model: 
+
+$$Y _t = s _t + m _t + X _t,$$
+
+where $s _t$ is the seasonal component, $m _t$ is the trend component and $X _t$ is the random component. 
+`decompose()` uses moving average filters to estimate all three parts. 
+
+In order to use `decompose()` you need an object of type `ts` with `frequency` > 1. When working with real data
+make sure to check this condition. 
+
+
+*** =instructions
+- Apply `decompose()` to `AirPassangers` and assign the results to `AP_decomp`.
+- Plot `AP_decomp` and inspect the output. 
+- Extract only the seasonal component form `AP_decomp` and save it as `AP_seasonal `. `?decompose` is helpful here. Look for the caption "Value". This section describes the output object of a function.  
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+#Decompose the AirPassangers time series
+
+
+#Visualize the decomposed time series
+
+
+#Extract the seasonal component
+
+
+#Plot only the seasonal component
+
+
+```
+
+*** =solution
+```{r}
+#Decompose the AirPassangers time series
+AP_decomp <- decompose(AirPassengers)
+
+#Visualize the decomposed time series
+plot(AP_decomp)
+
+#Extract the seasonal component
+AP_seasonal <- AP_decomp$seasonal
+
+#Plot only the seasonal component
+plot(AP_seasonal)
+```
+
+*** =sct
+```{r}
+ex() %>% check_object("AP_decomp") %>% check_equal()
+ex() %>% check_function("plot", index = 1) %>% check_arg("x") %>% check_equal()
+ex() %>% check_object("AP_seasonal") %>% check_equal()
+ex() %>% check_function("plot", index = 2) %>% check_arg("x") %>% check_equal()
+```
+
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:8274a78ae5
+## Trend and Seasonality II
+
+Reconsider the seasonal decompositon provided by `decompose()`. 
+What do you think about the result?
+
+*** =instructions
+
+- It looks good. The random component moves arround $0$. We can start working with ARMA models. 
+- The random model still has a distinct pattern and does not appear to be stationary. We have to reconsider our approach.  
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+#Decompose the AirPassangers time series
+AP_decomp <- decompose(AirPassengers)
+
+#Visualize the decomposed time series
+plot(AP_decomp)
+```
+
+*** =sct
+```{r}
+test_mc(2)
+```
+
+
+
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:0fa3f21fde
+## Trend and Seasonality III
+
+Why did it not work as expected? 
+
+As already stated decompose assumes a model of the form:
+
+$$Y _t = s _t + m _t + X _t.$$
+
+However, we found earlier that $s_t$ seems to depend on $t$ since the seasonal cycly increases with increasing $t$  
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
 --- type:NormalExercise lang:r xp:100 skills:1 key:cec3a5d183
 ## Aggregate
 The `AirPassanger` series has both an upward sloping trend and a seasonal pattern. 
@@ -389,7 +584,7 @@ lines(AP_avg, col = "red")
 
 *** =sct
 ```{r}
-ex() %>% check_object("AP_avg") %>% check_equal
+ex() %>% check_object("AP_avg") %>% check_equal()
 ex() %>% check_function("plot") %>% check_arg("x") %>% check_equal()
 fun_lines <- ex() %>% check_function("lines")
 fun_lines %>% check_arg("x") %>% check_equal()
@@ -666,3 +861,4 @@ test_object("rho2",
 ex() %>% check_output_expr("rho1") 
 ex() %>% check_output_expr("rho2") 
 ```
+
