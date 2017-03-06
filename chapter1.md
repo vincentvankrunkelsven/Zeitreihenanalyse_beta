@@ -407,7 +407,7 @@ underlying methods, which makes it an easy to use function. However, when applie
 $$Y _t = s _t + m _t + X _t,$$
 
 where $s _t$ is the seasonal component, $m _t$ is the trend component and $X _t$ is the random component. 
-`decompose()` uses moving average filters to estimate all three parts. 
+`decompose()` uses moving average filters to estimate $s _t$ and $m _t$. 
 
 In order to use `decompose()` you need an object of type `ts` with `frequency > 1`. When working with real data
 make sure to check this condition. 
