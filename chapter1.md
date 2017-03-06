@@ -400,7 +400,7 @@ were discussed how you can achieve this. In the exercise session those methods w
 detail. 
 
 Here we will introduce the R function `decompose()`. `decompose()` does not require any knowledge about the 
-underlying methods, which makes it an easy to use function. However, when applied without caution it can yield to misleading results. 
+underlying methods, which makes it an easy to use function. However, when applied without caution it can yield misleading results. 
 
 `decompose()` assumes the following model: 
 
@@ -409,7 +409,7 @@ $$Y _t = s _t + m _t + X _t,$$
 where $s _t$ is the seasonal component, $m _t$ is the trend component and $X _t$ is the random component. 
 `decompose()` uses moving average filters to estimate all three parts. 
 
-In order to use `decompose()` you need an object of type `ts` with `frequency` > 1. When working with real data
+In order to use `decompose()` you need an object of type `ts` with `frequency > 1`. When working with real data
 make sure to check this condition. 
 
 
@@ -504,10 +504,18 @@ As already stated decompose assumes a model of the form:
 
 $$Y _t = s _t + m _t + X _t.$$
 
-However, we found earlier that $s_t$ seems to depend on $t$ since the seasonal cycly increases with increasing $t$  
+However, we found earlier that the seasonal pattern becomes stronger with increasing overall level of the time series. 
+The simple model assumed by `decompose()` assumes that `s_t` does not change.
+
+One way to deal with time series like this is to work with take logarithms.  
 
 
 *** =instructions
+
+- Take the logarithm of the time series and assign it to `AP_logs`.
+- Plot `AP_logs`. Can you see what changed?
+- `decompose()` `AP_logs` and plot the result?
+
 
 *** =hint
 
