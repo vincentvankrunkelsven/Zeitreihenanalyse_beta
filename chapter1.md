@@ -504,18 +504,18 @@ As already stated decompose assumes a model of the form:
 
 $$Y _t = s _t + m _t + X _t.$$
 
-However, we found earlier that the seasonal pattern becomes stronger with increasing overall level of the time series. 
-The simple model assumed by `decompose()` assumes that `s_t` does not change.
+However, we found earlier that the seasonal pattern becomes stronger with increasing level of the time series. 
+The simple model assumed by `decompose()` considers the seasonal pattern $s_t$ to be constant over time.
 
-One way to deal with time series like this is to work with take logarithms.  
+One way to improve our results is to take logarithms.  
 
 
 *** =instructions
 
 - Take the logarithm of the time series and assign it to `AP_logs`.
 - Plot `AP_logs`. Can you see what changed?
-- `decompose()` `AP_logs` and plot the result?
-
+- `decompose()` `AP_log` and assign the result to `AP_log_decomp`. Plot `AP_log_decomp`.
+- What do you think about the result?
 
 *** =hint
 
@@ -526,17 +526,37 @@ One way to deal with time series like this is to work with take logarithms.
 
 *** =sample_code
 ```{r}
+#Take the logarithm 
+
+ 
+#Plot
+
+
+#Decompose and plot
+
 
 ```
 
 *** =solution
 ```{r}
+#Take the logarithm 
+AP_log <- log(AirPassengers)
+ 
+#Plot
+plot(AP_log)
+
+#Decompose and plot
+AP_log_decomp <- decompose(AP_log)
+plot(AP_log_decomp)
 
 ```
 
 *** =sct
 ```{r}
-
+ex() %>% check_object("AP_log") %>% check_equal()
+ex() %>% check_function("plot", index = 1) %>% check_arg("x") %>% check_equal()
+ex() %>% check_object("AP_log_decomp") %>% check_equal()
+ex() %>% check_function("plot", index = 2) %>% check_arg("x") %>% check_equal()
 ```
 --- type:NormalExercise lang:r xp:100 skills:1 key:cec3a5d183
 ## Aggregate
