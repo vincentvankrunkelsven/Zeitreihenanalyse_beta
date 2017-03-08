@@ -1,5 +1,5 @@
-devtools::install_version("AER", "1.2-5")
+install.packages("AER")
 devtools::install_version("xts") 
 devtools::install_version("ggplot2") 
-devtools::install_version("vars", "1.5-2")
+install.packages("vars")
 devtools::install_version("readr")
